@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<malloc.h>
 
-#include"KWENLINKLISTTOOLS.h"
+#include"../../KWENLINKLISTTOOLS.h"
 
 void reverseKGroup(LinkList *head, int k);
 
@@ -30,7 +30,7 @@ int main(void) {
 
 	initLinkList(&list_A);
 	insertDataByTail(list_A);
-	
+
 	showListInfor(list_A);
 	reverseKGroup(list_A, 3);
 	showListInfor(list_A);

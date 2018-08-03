@@ -1,6 +1,5 @@
 #include<stdio.h>
-
-#include"../../include/KwenPrePareDataTools.h"
+#include"../../include/KWENARRAYTOOLS.h"
 
 //冒泡排序是稳定的排序算法
 //气泡排序法
@@ -12,10 +11,10 @@
 // 27 90 49 80 58 6 9 18 50 [95] 95浮出
 // 27 49 80 58 6 9 18 50 [90 95] 90浮出
 // 27 49 58 6 9 18 50 [80 90 95] 80浮出
-// 27 49 6 9 18 50 [58 80 90 95] ...... 
-// 27 6 9 18 49 [50 58 80 90 95] ...... 
-// 6 9 18 27 [49 50 58 80 90 95] ...... 
-// 6 9 18 [27 49 50 58 80 90 95] 
+// 27 49 6 9 18 50 [58 80 90 95] ......
+// 27 6 9 18 49 [50 58 80 90 95] ......
+// 6 9 18 27 [49 50 58 80 90 95] ......
+// 6 9 18 [27 49 50 58 80 90 95]
 // 由于接下来不会再发生交换动作，排序提早结束
 // 在上面的例子当中，还加入了一个观念，就是当进行至i与i+1时没有交换的动作，表示接下来的
 // i+2至n已经排序完毕，这也增进了气泡排序的效率。
@@ -44,7 +43,7 @@ void ShakerSort(int *array, int array_length) {
 		boolean hasSwapflag = 0;
 		for(j = 0; j < array_length - i - 1; j++) {
 			if(array[j] > array[j + 1]) {
-				swap(&array[j], &array[j + 1]);
+				swapData(&array[j], &array[j + 1]);
 				hasSwapflag = 1;
 			}
 		}
@@ -57,12 +56,12 @@ void ShakerSort(int *array, int array_length) {
 int main(void) {
 	int *array;
 	int array_length = 20;
-	int maxValue = 1000000;
+	int maxValue = 100;
 	int minValue = 1;
 
 	array = createArray(array_length, maxValue, minValue);
 	showArray(array, array_length);
-	BubbleSort_high(array, array_length);
+	ShakerSort(array, array_length);
 	showArray(array, array_length);
 
 	free(array);

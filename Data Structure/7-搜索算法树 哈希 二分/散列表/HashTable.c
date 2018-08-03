@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 #include"HashTable.h"
-#include"../../include/kwenarrayTools.h"
+#include"../../include/KWENARRAYTOOLS.h"
 
 
 int Collision(int key) {
@@ -100,7 +100,7 @@ int HashInsert(HashTable *ht, Datatype x) {
 //给老子找！
 			while(ht[address].data.key != ADDRESSTEMP) {
 				address = Collision(address);
-			}			
+			}
 		}
 	}
 
@@ -109,7 +109,7 @@ int HashInsert(HashTable *ht, Datatype x) {
 
 	return true;
 }
-     
+
 
 
 int HashFunc(int key) {
@@ -127,7 +127,7 @@ int main(void) {
 
 	printf("%d\n", (-2) % 10);
 
-	showArray_1(array, array_length);
+	showArray(array, array_length);
 	FillInData(&L, array, array_length);
 	CreateHashTable(ht, L, array_length);
 	showHashTable(ht);
@@ -136,12 +136,12 @@ int main(void) {
 		printf("[%d]result_address = %d\n", L[i].key, result_address);
 	}
 	HashTableDel(ht, L[1]);
-	showHashTable(ht);	
+	showHashTable(ht);
 	for(i = 0; i < array_length; i++) {
 		result_address = HashSearch(ht, L[i]);
 		printf("[%d]result_address = %d\n", L[i].key, result_address);
 	}
-	
+
 
 	destoryData(&L);
 

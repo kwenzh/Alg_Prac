@@ -5,10 +5,6 @@
 
 typedef int DataType;
 
-
-
-//带头节点双向链表 注意的一点有 带头节点
-//双向链表 链表中第一个有效数据 的前驱节点应该指向null 而不是指向头结点
 typedef struct TwLinkList{
 	DataType data;
 	struct TwLinkList *next;
@@ -28,6 +24,8 @@ boolean insertElement(TwLinkList *head, int index, DataType data);
 boolean deleteElementByIndex(TwLinkList *head, int deleteIndex);
 
 TwLinkList *indexOf(TwLinkList *head, int index);
+
+
 
 boolean deleteElementByIndex(TwLinkList *head, int deleteIndex) {
 	TwLinkList *p;

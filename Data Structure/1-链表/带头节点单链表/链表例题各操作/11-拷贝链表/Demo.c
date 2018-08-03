@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<malloc.h>
 
-#include"../../include/kwenlinklisttools.h"
+#include"../../KWENLINKLISTTOOLS.h"
 
 LinkList *copyLinkList(LinkList *pHead) {
 	 LinkList *head = NULL;
@@ -19,7 +19,7 @@ LinkList *copyLinkList(LinkList *pHead) {
      	//p = node 的报错原因？并没有将链表各个节点链接起来
      	p = p->next;
      	q = q->next;
-     } 
+     }
 
      return head;
 }
@@ -37,7 +37,7 @@ int main(void) {
 
 	pHead->next->data = 10;
 	showListInfor(pHead);
-	showListInfor(newHead);	
+	showListInfor(newHead);
 
 	destoryLinkList(&pHead);
 	destoryLinkList(&newHead);

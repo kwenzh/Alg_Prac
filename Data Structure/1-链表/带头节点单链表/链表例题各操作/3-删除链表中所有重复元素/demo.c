@@ -1,7 +1,9 @@
 #include<stdio.h>
 #include<malloc.h>
 
-#include"../../include/kwenlinklisttools.h"
+
+//前提是链表是非递减的
+#include"../../KWENLINKLISTTOOLS.h"
 
 void deleteAllDuplicateEle(LinkList *head);
 

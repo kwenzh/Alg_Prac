@@ -1,6 +1,5 @@
 #include<stdio.h>
-
-#include"../../include/KwenPrePareDataTools.h"
+#include"../../include/KWENARRAYTOOLS.h"
 
 /*
 选择排序
@@ -15,12 +14,12 @@
 [1 10 31 33 37 48] 70 60 80 80 ......
 [1 10 31 33 37 48 60] 70 80 80 ......
 [1 10 31 33 37 48 60 70] 80 80 ......
-[1 10 31 33 37 48 60 70 80] 80 ...... 
+[1 10 31 33 37 48 60 70 80] 80 ......
  选择排序不是稳定的排序 */
 void selectedSort(int *array, int array_length);
 
 void selectedSort(int *array, int array_length) {
-	int i; 
+	int i;
 	int j;
 	int min;
 
@@ -30,9 +29,9 @@ void selectedSort(int *array, int array_length) {
 			min = array[j] < array[min] ? j : min;
 		}
 		if(min != i) {
-			swapData(&array[i], &array[min]);			
+			swapData(&array[i], &array[min]);
 		}
-		
+
 	}
 }
 

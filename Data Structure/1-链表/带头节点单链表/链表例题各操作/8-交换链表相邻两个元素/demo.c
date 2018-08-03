@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<malloc.h>
 
-#include"../../include/kwenlinklisttools.h"
+#include"../../KWENLINKLISTTOOLS.h"
 
 //1 2 3 4   2 1 4 3
 void swapPairs(LinkList *head);

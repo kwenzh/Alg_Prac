@@ -5,15 +5,11 @@
 #define _STDIOMALLOC_KWEN_
 #include<malloc.h>
 #include<time.h>
-#include"kwenbase.h"
+#include<stdlib.h>
+
+#include"KWENBASE.h"
+
 #endif
-
-#define FALSE		0
-#define TRUE		1
-#define false 		0
-#define true 		1
-
-typedef unsigned char boolean;
 
 #ifndef _KWEN_GET_ARRAYAND_MATRIX_
 #define _KWEN_GET_ARRAYAND_MATRIX_
@@ -22,6 +18,22 @@ int **getMatrix(int row, int col);
 
 int *getArray(int length);
 
+//得到随机数据
+int *createArray(int count, int maxValue, int minValue);
+
+int *createArray(int count, int maxValue, int minValue)  {
+	int *result = NULL;
+	int index = 0;
+
+	result = (int *)calloc(sizeof(int), count);
+
+	srand(time(NULL));
+	for(index = 0; index < count; index++) {
+		result[index] = rand()%(maxValue - minValue + 1) + minValue;
+	}
+
+	return result;
+}
 
 int *getArray(int length) {
 	int *array;
@@ -37,7 +49,7 @@ int **getMatrix(int row, int col) {
 	int **array;
 
 	array = (int **)calloc(row, sizeof(int *));
-//先为矩阵分配好所有的空间	
+//先为矩阵分配好所有的空间
 	*array = (int *)calloc(sizeof(int), row * col);
 	for(i = 0; i < row; i++) {
 		array[i] = *array + i * col;
@@ -114,8 +126,8 @@ void showMatrixAddress(int *MatrixFisrtAddress, int row, int col) {
 // 根据传递进来的前后地址翻转数组
 void reverseArray(int *beginAddress, int *endAddress);
 
-//翻转矩阵的行 首行和末行翻转 
-//无论是翻转一个一维数组中的元素还是二维数组中行翻转 要真正意义的去翻转值 
+//翻转矩阵的行 首行和末行翻转
+//无论是翻转一个一维数组中的元素还是二维数组中行翻转 要真正意义的去翻转值
 //不能将指向地址改变 要改变改地址存放的值交换 才算真正意义上的翻转 交换
 void reverseMatrix(int *MatrixFisrtAddress, int row, int col);
 
@@ -137,7 +149,7 @@ void reverseArray(int *beginAddress, int *endAddress) {
 	int temp;
 
 	for(; beginAddress <= endAddress;  beginAddress++,endAddress--) {
-		// temp = endAddress[0];			
+		// temp = endAddress[0];
 		// endAddress[0] = beginAddress[0];
 		// beginAddress[0] = temp;
 		swapData(beginAddress, endAddress);
@@ -164,7 +176,7 @@ int getArrayMinValue(int *array, int array_length) {
 
 	while(i < array_length) {
 		min = min > array[i] ? array[i] : min;
-		i++; 
+		i++;
 	}
 
 	return min;
@@ -176,7 +188,7 @@ int getArrayMaxValue(int *array, int array_length) {
 
 	while(i < array_length) {
 		max = max < array[i] ? array[i] : max;
-		i++; 
+		i++;
 	}
 
 	return max;
@@ -230,7 +242,7 @@ void transposeMatrix(int *MatrixFisrtAddress, int *row, int *col) {
 			}
 		}
 	}else {
-		int *array = (int *)calloc(sizeof(int), (*row) * (*col));  
+		int *array = (int *)calloc(sizeof(int), (*row) * (*col));
 		//先将矩阵中的数据存放到一个数组中去 一次性放到转置后的位置
 		//最后将数组中的元素还给矩阵完成转置 并且交换行列值
 		for(i = 0; i < *row; i++) {
@@ -247,7 +259,7 @@ void transposeMatrix(int *MatrixFisrtAddress, int *row, int *col) {
 		free(array);
 	}
 
-	
+
 }
 #endif
 #endif

@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<malloc.h>
 
-#include"../../include/kwenlinklisttools.h"
+#include"../../KWENLINKLISTTOOLS.h"
 
 void deleteNode(LinkList *list_A);
 void deleteNode(LinkList *list_A) {

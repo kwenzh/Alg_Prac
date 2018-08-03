@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-#include"../../include/KwenPrePareDatatools.h"
+#include"../../include/KWENARRAYTOOLS.h"
 
 void heapSort(int *array, int array_length);
 void adjustHeap(int *array, int count, int root);

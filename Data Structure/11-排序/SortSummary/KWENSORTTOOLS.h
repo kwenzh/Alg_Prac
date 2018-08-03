@@ -4,7 +4,6 @@
 #include<stdio.h>
 
 #include"../../include/KWENLINKLISTTOOLS.h"
-#include"../../include/KWENPREPAREDATATOOLS.h"
 #include"../../include/KWENARRAYTOOLS.h"
 
 #ifndef _QUICK_SORT_KWEN_SORT_
@@ -169,16 +168,16 @@ void insertDataToBucket(int *array, int array_length, BUCKET *bucket, int minVal
 		if(bucket[index].count == 0) {
 			node->next = p->next;
 			p->next = node;
-		}else {	
-			p = (array[i] > (p->next->data)) ? p->next : p;		 
+		}else {
+			p = (array[i] > (p->next->data)) ? p->next : p;
 			//如果此时一个桶是H->6，让5进桶，此时p还是指向head，
 			//如果5大于头结点的下一个节点值，再让p移动 不然的话p不懂还是指向头
 			//进入下面循环后发现5不大于6 p也没有移动还是在头结点 插入5到头结点后面
 			while(p->next && (array[i] > p->next->data)) {
 				p = p->next;
-			}	
+			}
 			node->next = p->next;
-			p->next = node;	
+			p->next = node;
 		}
 		bucket[index].count++;
 	}
@@ -244,7 +243,7 @@ void countSort_Tool(int *array, int array_length, int maxValue, int minValue) {
 		}
 	}
 
-	kwen_free(countArray);
+	destoryArray(&countArray);
 }
 
 void countSort(int *array, int array_length) {
@@ -403,7 +402,7 @@ void heapSort(int *array, int array_length) {
 		adjustHeap(array, array_length, root);
 	}
 	swapData(&array[0], &array[array_length - 1]);
-	
+
 	temp = array_length;
 	for(temp--; temp > 1; temp--) {
 		adjustHeap(array, temp, 0);
@@ -422,9 +421,9 @@ void selectedSort(int *array, int array_length) {
 			min = array[j] < array[min] ? j : min;
 		}
 		if(min != i) {
-			swapData(&array[i], &array[min]);			
+			swapData(&array[i], &array[min]);
 		}
-		
+
 	}
 }
 
@@ -443,10 +442,10 @@ void quickSortOnce(int *array, int left, int right) {
 			if(i >= j){
 				break;
 			}
-			swapData(&array[i], &array[j]);		
+			swapData(&array[i], &array[j]);
 		}
 		quickSortOnce(array, left, i - 1);// 对停止循环后i的左右进行递归
-		quickSortOnce(array, j + 1, right);	//对j的右侧进行递归  
+		quickSortOnce(array, j + 1, right);	//对j的右侧进行递归
 	}
 }
 

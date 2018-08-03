@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 
-
 #define NOT_FOUND	-1
 
 int BM_Matching(char *targetStr, char *PatStr);
@@ -12,7 +11,7 @@ int getRemoveDiatance(char ch, char *PatStr, int place) {
 
 	for(i = place; i >= 0; i--) {
 		if(ch == PatStr[i]) {
-//在左侧有这样一个字符的话计算偏移距离			
+//在左侧有这样一个字符的话计算偏移距离
 			return place - i;
 		}
 	}
@@ -28,7 +27,7 @@ int BM_Matching(char *targetStr, char *PatStr) {
 
 	for(Match_index = 0; Match_index <= targetStr_len - PatStr_len; ) {
 		for(j = PatStr_len - 1; j >= 0 && targetStr[Match_index + j] == PatStr[j]; j--);
-		
+
 		if(j == -1) {
 			return Match_index;
 		}
@@ -51,13 +50,13 @@ int main(void) {
 		printf(" ");
 	}
 	puts(PatStr);
-	
+
 
 	return 0;
 }
 // if(index != NOT_FOUND) {
 // 		char formatString[80];
-		
+
 // 		sprintf(formatString, "%%%ds%%s\n", index);
 // 		printf("\n%s\n", targetStr);
 // 		printf(formatString, "", PatStr);

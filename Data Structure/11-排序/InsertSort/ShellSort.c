@@ -1,7 +1,7 @@
-#include<stdio.h> 
+#include<stdio.h>
 #include<limits.h>
 
-#include"../../include/KwenPrePareDataTools.h"
+#include"../../include/KWENARRAYTOOLS.h"
 
 void shellSort(int *array, int array_length);
 
@@ -13,8 +13,8 @@ void shellSort(int *array, int array_length) {
 	for(gap = array_length / 2; gap > 0; gap /= 2) {
 		for(i = gap; i < array_length; i++) {
 			for(j = i - gap; j >= 0 && array[j] > array[j + gap]; j -= gap) {
-				swapData_way1(&array[j], &array[j + gap]);
-				showArray(array, array_length);
+				swapData(&array[j], &array[j + gap]);
+				// showArray(array, array_length);
 			}
 		}
 	}
@@ -29,6 +29,8 @@ int main(void) {
 	showArray(array, array_length);
 	shellSort(array, array_length);
 	showArray(array, array_length);
+
+	destoryArray(&array);
 
 	return 0;
 }

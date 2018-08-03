@@ -1,14 +1,14 @@
 #ifndef _BINARY_SEARCH_TREE_H
 #define _BINARY_SEARCH_TREE_H
 
-#include"../../../../include/kwenarraytools.h"
+#include"../../../include/KWENARRAYTOOLS.h"
 
 typedef int DataType;
 
 typedef struct NODE{
 	DataType key;
 	struct NODE *leftChild;
-	struct NODE *rightChild;	
+	struct NODE *rightChild;
 }BSTree, NODE;
 
 void CreateBSTree(BSTree **root, DataType *array, int array_length);
@@ -59,14 +59,14 @@ boolean delelteBSTree(BSTree *root, DataType targetValue) {
 		}
 		pre_p = p;							//f用来记录p的前驱节点
 		if(p->key > targetValue) {
-			
+
 			p = p->leftChild;
 		}else{
 			p = p->rightChild;
 		}
 	}
 	if(p == NULL) {
-		printf("The %d is not exist, delete faild !\n");
+		printf("The %d is not exist, delete faild !\n", targetValue);
 		return false;
 	}
 	if(p->leftChild == NULL) {		//这里考虑的是要删除的节点是一个叶子节点的话或者只有一个右孩子

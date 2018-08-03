@@ -1,11 +1,13 @@
 #include<stdio.h>
 
-#include"../../../include/kwenarraytools.h"
-#include"../../../include/kwenpreparedatatools.h"
+#include"../../include/KWENARRAYTOOLS.h"
 
 #define NOT_FOUND	-1
 
+//二分查找
 int BinarySearch(int *array, int array_lenigth, int targetValue);
+
+// 插值查找 计算值
 int InterploationSearch(int *array, int array_length, int targetValue);
 
 void shellSort(int *array, int array_length);
@@ -43,7 +45,7 @@ void shellSort(int *array, int array_length) {
 	for(gap = array_length / 2; gap > 0; gap /= 2) {
 		for(i = gap; i < array_length; i++) {
 			for(j = i - gap; j >= 0 && array[j] > array[j + gap]; j -= gap) {
-				swapData_way1(&array[j], &array[j + gap]);
+				swapData(&array[j], &array[j + gap]);
 			}
 		}
 	}
@@ -70,15 +72,17 @@ int main(void) {
 	int array_length = sizeof(array) / sizeof(int);
 	int index;
 	int targetValue = 21;
+	int *array2 = NULL;
 
-	// array = createArray(array_length, 100, 1);
+	// array2 = createArray(array_length, 100, 1);
 	// shellSort(array, array_length);
 	showArray(array, array_length);
 	scanf("%d", &targetValue);
 	index = InterploationSearch(array, array_length, targetValue);
 	printf("index = %d\n", index);
 
-	// kwen_free(array);
+
+	// destoryArray(&array2);
 
 	return 0;
 }

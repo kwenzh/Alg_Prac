@@ -1,3 +1,7 @@
+/*
+一个工具头文件
+*/
+
 #ifndef _KWEN_BASE_H_
 #define _KWEN_BASE_H_
 

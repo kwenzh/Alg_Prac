@@ -3,7 +3,7 @@
 
 #include<malloc.h>
 
-#include"KwenBase.h"
+#include"KWENBASE.h"
 
 typedef int DataType;
 
@@ -83,7 +83,7 @@ LinkList *copyLinkList(LinkList *pHead) {
      	//p = node 的报错原因？并没有将链表各个节点链接起来
      	p = p->next;
      	q = q->next;
-     } 
+     }
 
      return head;
 }
@@ -329,7 +329,7 @@ void insertDataByHead(LinkList *head) {
 // 		header = p->next;   //让当前头结点指向下一个节点
 // 		free(p);			//把保存的节点释放掉
 // 	}
-// 	free(header);			
+// 	free(header);
 // 	head = NULL;
 // }
 

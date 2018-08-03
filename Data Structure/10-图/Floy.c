@@ -52,18 +52,18 @@ int main(void) {
 	for(i = 0; i < POINTCOUNT; i++) {
 		for(j = 0; j < POINTCOUNT; j++) {
 			for(k = 0; k < POINTCOUNT; k++) {
-				if(M，ap_info[j][k] > Map_info[j][i] + Map_info[i][k]) {
+				if(Map_info[j][k] > Map_info[j][i] + Map_info[i][k]) {
 					Map_info[j][k] = Map_info[j][i] + Map_info[i][k];
 					rount_matrix[j][k] = i;
 				}
 			}
 		}
-		// showMatrix(&Map_info[0][0], 6, 6);		
+		// showMatrix(&Map_info[0][0], 6, 6);
 	}
 
 	showMatrix(&rount_matrix[0][0], 6, 6);
 	showMatrix(&Map_info[0][0], 6, 6);
-		
+
 
 	return 0;
 }

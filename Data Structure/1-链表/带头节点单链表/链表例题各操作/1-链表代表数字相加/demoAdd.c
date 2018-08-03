@@ -1,8 +1,8 @@
 #include<stdio.h>
 
-#include"../../include/kwenlinklisttools.h"
+#include"../../KWENLINKLISTTOOLS.h"
 
-LinkList *addTwoNumbers(LinkList *list_A, LinkList *list_B);
+// LinkList *addTwoNumbers(LinkList *list_A, LinkList *list_B);
 /*
 2
 4
@@ -13,7 +13,7 @@ LinkList *addTwoNumbers(LinkList *list_A, LinkList *list_B);
 4
 -1
  */
-LinkList *addTwoNumbers(LinkList *list_A, LinkList *list_B) {
+LinkList *addTwoNumbers2(LinkList *list_A, LinkList *list_B) {
 	LinkList *result = NULL;
 	LinkList *p;
 	int carry_data = 0;
@@ -43,8 +43,11 @@ int main(void) {
 
 	insertDataByTail(list_A);
 	insertDataByTail(list_B);
-	
-	result = addTwoNumbers(list_A->next, list_B->next);
+
+	showListInfor(list_A);
+	showListInfor(list_B);
+
+	result = addTwoNumbers2(list_A->next, list_B->next);
 
 	showListInfor(list_A);
 	showListInfor(list_B);

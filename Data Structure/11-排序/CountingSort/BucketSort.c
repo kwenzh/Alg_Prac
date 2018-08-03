@@ -1,6 +1,5 @@
 #include<stdio.h>
 
-#include"../../include/KwenPrePareDataTools.h"
 #include"../../include/KWENLINKLISTTOOLS.h"
 #include"../../include/KWENARRAYTOOLS.h"
 
@@ -49,16 +48,16 @@ void insertDataToBucket(int *array, int array_length, BUCKET *bucket, int minVal
 		if(bucket[index].count == 0) {
 			node->next = p->next;
 			p->next = node;
-		}else {	
-			p = (array[i] > (p->next->data)) ? p->next : p;		 
+		}else {
+			p = (array[i] > (p->next->data)) ? p->next : p;
 			//如果此时一个桶是H->6，让5进桶，此时p还是指向head，
 			//如果5大于头结点的下一个节点值，再让p移动 不然的话p不懂还是指向头
 			//进入下面循环后发现5不大于6 p也没有移动还是在头结点 插入5到头结点后面
 			while(p->next && (array[i] > p->next->data)) {
 				p = p->next;
-			}	
+			}
 			node->next = p->next;
-			p->next = node;	
+			p->next = node;
 		}
 		bucket[index].count++;
 	}
@@ -112,16 +111,17 @@ int main(void) {
 	long end_time;
 	long total_time;
 
-	
+
 	array = createArray(array_length, 1000000 , 1);
 	// showArray(array, array_length);
-before_time = clock();	
+before_time = clock();
 	BUCKETSORT(array, array_length);
 end_time = clock();
-total_time = end_time - before_time;	
+total_time = end_time - before_time;
 	// showArray(array, array_length);
-printf("%ld.%03ld s\n", total_time / 1000, total_time % 1000);	
-	kwen_free(array);
+printf("%ld.%03ld s\n", total_time / 1000, total_time % 1000);
+
+	destoryArray(&array);
 
 	return 0;
 }

@@ -10,7 +10,7 @@ int main(void) {
 	int i;
 	const int randomDataCeil = 1000;
 	const int randomDataLow = 1;
-	const int array_length = 100000;
+	const int array_length = 100;
 	int *array;
 
 	for(i = 0; i < ALLSORT_LENGTH; i++) {
@@ -24,7 +24,7 @@ int main(void) {
 	}
 	// showArray(array, array_length);
 
-	kwen_free(array);
+	destoryArray(&array);
 
 	return 0;
 }

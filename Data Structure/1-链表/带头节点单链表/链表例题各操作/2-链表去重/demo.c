@@ -1,16 +1,16 @@
 #include<stdio.h>
 #include<malloc.h>
 
-#include"../../include/kwenlinklisttools.h"
+#include"../../KWENLINKLISTTOOLS.h"
 
 void deleteDumplicatesNode(LinkList *list_A);
 int add(int n);
 
-void deleteDumplicatesNode(LinkList *list_A) {
+void deleteDumplicatesNowde(LinkList *list_A) {
 	LinkList *p;
 
 	if(list_A == NULL || list_A->next == NULL) {
-		
+
 		return;
 	}
 

@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-#include"../include/KwenLinkListTools.h"
+#include"../../KWENLINKLISTTOOLS.h"
 
 LinkList partition(LinkList *head, int value);
 

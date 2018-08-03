@@ -3,7 +3,7 @@
 #include<math.h>
 
 #include"AVLTree.h"
-#include"../../../../include/kwenbase.h"
+#include"../../../include/KWENBASE.h"
 
 void destoryAVLTree(AVLTree **root) {
 	if(NULL == *root) {
@@ -34,18 +34,18 @@ void setHeight(AVLTree *root, int height) {
 // 再让5->right = 7成为了新的根节点 5就是新的根节点
 //       5
 //     3    7
-//   1     6  8  
+//   1     6  8
 void SingleRightRotate(AVLTree **root) {
 	AVLNode *xPNode = *root;
 	AVLNode *yPNode = (*root)->left;
-	
-//第一步根节点的指向 使其指向左孩子的右孩子	
-	xPNode->left = yPNode->right;   
+
+//第一步根节点的指向 使其指向左孩子的右孩子
+	xPNode->left = yPNode->right;
 //然后让根节点的左孩子的右指向去指向右孩子 完成一个树的旋转
-	yPNode->right = xPNode;      	
-//左孩子原来的成为新的根节点	
-	*root = yPNode;			
-//更新旋转后的二叉树的左右高度			
+	yPNode->right = xPNode;
+//左孩子原来的成为新的根节点
+	*root = yPNode;
+//更新旋转后的二叉树的左右高度
 	xPNode->height = max(getHeight(xPNode->left), getHeight(xPNode->right)) + 1;
 	yPNode->height = max(getHeight(yPNode->left), getHeight(yPNode->right)) + 1;
 }
@@ -65,14 +65,14 @@ void SingleLeftRotate(AVLTree **root) {
 	AVLNode *xPNode = *root;
 	AVLNode *yPNode = (*root)->right;
 
-	xPNode->right = yPNode->left;	
-	yPNode->left = xPNode;  
+	xPNode->right = yPNode->left;
+	yPNode->left = xPNode;
 	*root = yPNode;				//原来根节点的右孩子成为新的根节点
 	xPNode->height = max(getHeight(xPNode->left), getHeight(xPNode->right)) + 1;
 	yPNode->height = max(getHeight(yPNode->left), getHeight(yPNode->right)) + 1;
 }
 
-//当在根节点的左子树的右子树上插入一个新节点 
+//当在根节点的左子树的右子树上插入一个新节点
 //需要进行一次双右旋操作使树保持平衡
 //         7
 //     5       8
@@ -81,13 +81,13 @@ void SingleLeftRotate(AVLTree **root) {
 // 例如1插入在3的右子树 先把根节点的左子树进行左旋操作
 //    5                 6
 //  3    6            5
-//    1             3        
+//    1             3
 //                     1
 //再对根节点进行一次右旋操作达到平衡
 //          6
 //       5    7
 //     3         8
-//       1  
+//       1
 //第一次将根节点的左子树进行单左旋操作
 //第二次将根节点进行单右旋操作
 //
@@ -111,7 +111,7 @@ void DoubleRightRotate(AVLTree **root) {
 //  8
 //    11
 //       13
-//     5  
+//     5
 //第二次将根节点进行单左旋操作
 //       8
 //     7   11
@@ -141,11 +141,11 @@ void insertNode(AVLTree **root, DataType element) {
 	if(element < (*root)->element) {
 		insertNode(&((*root)->left), element);
 		if(getHeight((*root)->left) - getHeight((*root)->right) > 1) {
-		//插入到左子节点的左子树 进行单右旋操作	
+		//插入到左子节点的左子树 进行单右旋操作
 			if(element < (*root)->left->element) {
 				SingleRightRotate(root);
 			}
-		//插入到左子节点的右子树 进行双右旋转操作	
+		//插入到左子节点的右子树 进行双右旋转操作
 			else {
 				DoubleRightRotate(root);
 			}
@@ -155,11 +155,11 @@ void insertNode(AVLTree **root, DataType element) {
 	if(element > (*root)->element){
 		insertNode(&((*root)->right), element);
 		if(getHeight((*root)->right) - getHeight((*root)->left) > 1) {
-		//插入到右子节点的右子树 进行单左旋操作	
+		//插入到右子节点的右子树 进行单左旋操作
 			if(element > (*root)->right->element) {
 				SingleLeftRotate(root);
 			}
-		//插入到右子节点的左子树 进行双左旋操作	
+		//插入到右子节点的左子树 进行双左旋操作
 			else {
 				DoubleLeftRotate(root);
 			}
@@ -200,7 +200,7 @@ AVLNode *searchFromAVLTree(AVLTree *root, const DataType targetValue) {
 //当前节点的值大于特征值 接着递归往节点的左子树找
 		return searchFromAVLTree(root->left, targetValue);
 	}else {
-//当前节点的值不大于特征值 接着递归往节点的右子树找		
+//当前节点的值不大于特征值 接着递归往节点的右子树找
 		return searchFromAVLTree(root->right, targetValue);
 	}
 }
@@ -219,12 +219,12 @@ void repairTree(AVLTree **root) {
 			DoubleLeftRotate(root);
 		}
 	}
-//左子树的高度小于右子树的高度	
-	else if(getHeight((*root)->left) < getHeight((*root)->right)) {		
+//左子树的高度小于右子树的高度
+	else if(getHeight((*root)->left) < getHeight((*root)->right)) {
 		if(getHeight((*root)->right->right) > getHeight((*root)->right->left)) {
 			SingleRightRotate(root);
 		}
-		
+
 		else if(getHeight((*root)->right->right) < getHeight((*root)->right->left)){
 			DoubleRightRotate(root);
 		}
@@ -241,7 +241,7 @@ void deleteFromAVLTree(AVLTree **root, const DataType targetValue) {
 		deleteFromAVLTree(&((*root)->left), targetValue);
 	}
 	else if((*root)->element < targetValue) {
-		deleteFromAVLTree(&((*root)->right), targetValue);	
+		deleteFromAVLTree(&((*root)->right), targetValue);
 	}
 	//要删除的节点左右孩子都有
 	else if((*root)->left && (*root)->right) {
@@ -257,14 +257,14 @@ void deleteFromAVLTree(AVLTree **root, const DataType targetValue) {
 		}else if((*root)->right == NULL) {
 			*root = (*root)->left;
 		}
-//真正删除节点释放空间的代码在这里		
+//真正删除节点释放空间的代码在这里
 		free(temp);
 		temp = NULL;
 	}
 //对删除完的树进行调整 使其仍旧保持平衡
 	if((*root) != NULL) {
 		(*root)->height = max(getHeight((*root)->left), getHeight((*root)->right)) + 1;
-		 if((getHeight((*root)->left) - getHeight((*root)->right) >= 2) 
+		 if((getHeight((*root)->left) - getHeight((*root)->right) >= 2)
 		 || (getHeight((*root)->right) - getHeight((*root)->left) >= 2)) {
            	repairTree(root);
             //修复完成后更新节点高度
@@ -337,4 +337,3 @@ void InorderTree(const AVLTree *root) {
 	printf("%d ", root->element);
 	InorderTree(root->right);
 }
-

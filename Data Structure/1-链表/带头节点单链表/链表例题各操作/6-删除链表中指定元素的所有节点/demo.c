@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<malloc.h>
 
-#include"../../include/kwenlinklisttools.h"
+#include"../../KWENLINKLISTTOOLS.h"
 
 void deleteAllNodeByValue(LinkList *list_A, int value);
 

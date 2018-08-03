@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-#include"../../include/KwenPrePareDataTools.h"
+#include"../../include/KWENARRAYTOOLS.h"
 
 //快速排序不是稳定的排序算法
 void quickSort(int *array, int array_length);
@@ -48,12 +48,12 @@ void quickSortOnce(int *array, int left, int right) {
 			if(i >= j){
 				break;
 			}
-			swapData(&array[i], &array[j]);		
+			swapData(&array[i], &array[j]);
 		}
 		printf("for %dth time quickSort: mid = %d, low = %d, high = %d  ", ++count, s, i , j);
 		showArray(array, 9);
 		quickSortOnce(array, left, i - 1);// 对停止循环后i的左右进行递归
-		quickSortOnce(array, j + 1, right);	//对j的右侧进行递归  
+		quickSortOnce(array, j + 1, right);	//对j的右侧进行递归
 	}
 }
 

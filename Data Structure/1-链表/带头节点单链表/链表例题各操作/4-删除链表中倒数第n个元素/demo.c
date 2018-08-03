@@ -1,13 +1,13 @@
 #include<stdio.h>
 #include<malloc.h>
 
-#include"../../include/kwenlinklisttools.h"
+#include"../../KWENLINKLISTTOOLS.h"
 
 void RemoveNthNodeFromEndofList(LinkList *head, int n);
 
 void RemoveNthNodeFromEndofList_2(LinkList *head, int n);
 
-//Linus Torvalds 的双重指针方法 
+//Linus Torvalds 的双重指针方法
 //先让一个指针fast走n步，在第二循环中让另外一个指针slow从头走，走了n步指针fast接着走直到链表尾
 //这时slow走到的地方就是要删除节点的前驱节点 真是太牛逼了
 void RemoveNthNodeFromEndofList_2(LinkList *head, int n) {
@@ -15,12 +15,12 @@ void RemoveNthNodeFromEndofList_2(LinkList *head, int n) {
 	LinkList *slow = head;
 	LinkList *temp;
 
-	if(head == NULL || k == 0) {
-		return NULL;
+	if(head == NULL || n == 0) {
+		return;
 	}
-	while(k-- > 0) {
+	while(n-- > 0) {
 		if(fast == NULL) {
-			return NULL;
+			return;
 		}
 		fast = fast->next;
 	}
@@ -52,7 +52,7 @@ void RemoveNthNodeFromEndofList(LinkList *head, int n) {
 
 int main(void) {
 	LinkList *list_A = NULL;
-	
+
 
 	initLinkList(&list_A);
 	insertDataByTail(list_A);

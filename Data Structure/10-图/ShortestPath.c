@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<malloc.h>
 
-#include"../../include/kwenarraytools.h"
+#include"../include/KWENARRAYTOOLS.h"
 
 #define MAXVEXNUM	100
 
@@ -146,12 +146,12 @@ int main(void) {
 	createGraph(&graph, vexnum, edgenum);
 	printf("Map Matrix infor:\n");
 	showMatrix_1(graph->arc, vexnum);
-	
+
 	Dijkstra(graph, dij_dist);
 
 	printf("Dijkstra result: \n");
 	showArray(dij_dist, vexnum);  //这里打印的是第一个节点到其他各点的最短距离信息
-	
+
 	Floy_result_matrix = getMatrix(vexnum, vexnum);
 	Floy_rount_matrix = getMatrix(vexnum, vexnum);
 	Floy(graph, Floy_result_matrix, Floy_rount_matrix);
@@ -182,7 +182,7 @@ void showMatrix_1(int array[][MAXVEXNUM], int n) {
 	}
 	printf("\n");
 }
-/* 
+/*
 6 10
 1
 2

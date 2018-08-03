@@ -1,7 +1,7 @@
 #ifndef _HASH_TABLE_H
 #define _HASH_TABLE_H
 
-#include"../../include/kwenBase.h"
+#include"../../include/KWENBASE.h"
 
 #define DELFLAG			-2
 #define HashTableSize	11

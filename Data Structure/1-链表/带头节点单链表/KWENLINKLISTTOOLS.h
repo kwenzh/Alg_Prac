@@ -65,8 +65,6 @@ LinkList *addTwoNumbers(LinkList *list_A, LinkList *list_B);
 
 int getLinkListLength(LinkList *head);
 
-
-
 LinkList *copyLinkList(LinkList *pHead) {
 	 LinkList *head = NULL;
      LinkList *p;

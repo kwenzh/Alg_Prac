@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-#include"../../include/KWENPREPAREDATATOOLS.h"
+#include"../../include/KWENARRAYTOOLS.h"
 
 //计数排序主要思想是将待排序序列的值当做下标，在另外一个数组中进行统计
 //有类似统计一段字符串中各个字符出现的频率，也是空间换时间的思想
@@ -31,7 +31,8 @@ void countSort_Tool(int *array, int array_length, int maxValue, int minValue) {
 		}
 	}
 
-	kwen_free(countArray);
+	destoryArray(&countArray);
+
 }
 
 void countSort(int *array, int array_length) {
@@ -58,7 +59,7 @@ int main(void) {
 	countSort(array, array_length);
 	showArray(array, array_length);
 
-	kwen_free(array);
+	destoryArray(&array);
 
 	return 0;
 }

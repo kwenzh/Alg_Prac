@@ -1,11 +1,11 @@
 # 文件名: makefile
-SHELL=cmd.exe
-OBJS=main.o HelloWorld.o
+CC = gcc
+OBJS=demo.o SparseMatrix.o
 main: $(OBJS)
-        g++ -o hello $(OBJS)
-main.o:main.cpp HelloWorld.h
-        g++ -c main.cpp
-HelloWorld.o: HelloWorld.cpp HelloWorld.h
-        g++ -c HelloWorld.cpp
+				$(CC) $(OBJS) -o get
+demo.o: demo.c SparseMatrix.h
+				$(CC) -c demo.c
+SparseMatrix.o: SparseMatrix.c SparseMatrix.h
+				$(CC) -c SparseMatrix.c
 clean:
-        del $(OBJS)
+				rm -rf main $(OBJS)

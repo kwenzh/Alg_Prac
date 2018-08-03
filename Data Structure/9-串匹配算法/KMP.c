@@ -2,7 +2,7 @@
 #include<string.h>
 #include<malloc.h>
 
-#include"../../include/kwenarrayTools.h"
+#include"../include/KWENARRAYTOOLS.h"
 
 #define NOT_FOUND  -1
 
@@ -41,7 +41,7 @@ int StrMatchKMP(char *libraryStr, char *subStr) {
 
 	nextLocalArray = (int *)calloc(sizeof(int), subStr_len);
 	getNextLocal(subStr, nextLocalArray);
-	showArray_1(nextLocalArray, subStr_len);
+	showArray(nextLocalArray, subStr_len);
 	while(libraryStr_len - subStr_len + subStr_index - libraryStr_index >= 0) {
 		if(0 == subStr[subStr_index]) {
 			free(nextLocalArray);
@@ -65,9 +65,9 @@ int StrMatchKMP(char *libraryStr, char *subStr) {
 int main(void) {
 	char *libraryStr = "BABCBABCABCAABCABCACABC";
 	char *subStr = "ABCABCACAB";
-	
+
 	int matchedIndex = StrMatchKMP(libraryStr, subStr);
-	
+
 	printf("matchedIndex = %d\n", matchedIndex);
 
 	puts(libraryStr);

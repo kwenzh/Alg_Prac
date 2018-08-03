@@ -1,6 +1,7 @@
 #include<stdio.h>
 
-#include"../../include/KwenPrePareDataTools.h"
+#include"../../include/KWENARRAYTOOLS.h"
+
 /*
 插入排序
 像是玩朴克一样，我们将牌分作两堆，每次从后面一堆的牌抽出最前端的牌，然后插入前面一
@@ -14,7 +15,7 @@
 [6 8 55 67 77 84 92] 85 43 67 将55插入67前
 [6 8 55 67 77 84 85 92] 43 67 ......
 [6 8 43 55 67 77 84 85 92] 67 ......
-[6 8 43 55 67 67 77 84 85 92] 
+[6 8 43 55 67 67 77 84 85 92]
  */
 //插入排序是稳定的排算法
 void DirectInsertSorted(int *array, int array_length);
@@ -44,6 +45,8 @@ int main(void) {
 	showArray(array, array_length);
 	DirectInsertSorted(array, array_length);
 	showArray(array, array_length);
+
+	destoryArray(&array);
 
 	return 0;
 }

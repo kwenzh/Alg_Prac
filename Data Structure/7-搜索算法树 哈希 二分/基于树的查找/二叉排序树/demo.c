@@ -10,7 +10,7 @@ int main(void) {
 	NODE *find_result = NULL;
 	DataType targetValue = 65;
 
-	showArray_1(array, array_length);
+	showArray(array, array_length);
 	CreateBSTree(&root, array, array_length);
 	showTree(root);
 	printf("\n");
@@ -18,7 +18,7 @@ int main(void) {
 	if(find_result == NULL) {
 		printf("%d is not exist\n", targetValue);
 	}else {
-		printf("%d find successful!\n", find_result->key);	
+		printf("%d find successful!\n", find_result->key);
 	}
 	PrintTreeInWinDow(root, 0);
 	delelteBSTree(root, targetValue);

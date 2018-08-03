@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-#include"../../include/kwenquene.h"
+#include"KWENQUENE.h"
 
 int main(void) {
 	QUENE *quene = NULL;
